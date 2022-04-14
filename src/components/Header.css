@@ -1,0 +1,21 @@
+.banner-overlay {
+	background-image: url("https://yourimageshare.com/ib/aD8TQzSIH0.png");
+	/* padding:220px 0px 200px; */
+	width: 100%;
+	min-height: calc(100vh - 116.2px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+	/* display: flex; */
+	margin-bottom: 20px;
+
+}
+
+.banner h1 {
+	color:aliceblue;
+}
+.banner p {
+	margin:px auto 15px;
+	max-width: 670px;
+	color:beige;
+}
