@@ -24,6 +24,7 @@ import Workeradmin from './components/WorkerAdmin';
 import UserDashboard from './components/UserDashboard';
 import Navbar from './components/Navbar';
 import WorkerDashboard from './components/WorkerDashboard';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
 
@@ -31,6 +32,7 @@ function App() {
     <>
 
       <Router>
+        <ToastContainer/>
         <Navbar />
         <div className='container-fluid '>
           <Routes>

@@ -3,6 +3,7 @@ import axios from 'axios'
 import base_url from '../../api/workerboot'
 import { useState } from 'react'
 import { useNavigate } from 'react-router'
+import { toast } from 'react-toastify'
 import {
   CButton,
   CCard,
@@ -53,8 +54,34 @@ const UserRegistration = () => {
   }
   //form handler
   const handleform = (e) => {
+    var pass_check = false;
+    var user_check=false;
+    if (user.password >= 6) {
+      pass_check = true;
+
+    }
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (user.email.length > 3 && re.test(user.email)) {
+      user_check = true;
+    }
+    if (pass_check && user_check) {
+      postData(adduser);
+    }
+    else {
+      toast.error("incorrect email and password!! password length should be greater than 6 digit and email should have @ symbol",
+        {
+          position: "top-center",
+          autoClose: 2000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined
+        }
+      )
+    }
     console.log(adduser);
-    postData(adduser);
+  
     e.preventDefault();
 
   }
@@ -69,29 +96,20 @@ const UserRegistration = () => {
                 <CForm onSubmit={handleform}>
                   <h1>User Registration</h1>
                   <p className="text-medium-emphasis">Create your account</p>
+         
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
 
-                    {/* <CFormInput placeholder="id" autoComplete="id"
-                      onChange={(e) => {
-                        setUser({ ...user, id: e.target.value })
-                      }} /> */}
-                  </CInputGroup>
-                  <CInputGroup className="mb-3">
-                    <CInputGroupText>
-                      <CIcon icon={cilUser} />
-                    </CInputGroupText>
-
-                    <CFormInput placeholder="Username" autoComplete="username"
+                    <CFormInput placeholder="Username*" autoComplete="username"
                       onChange={(e) => {
                         setUser({ ...user, name: e.target.value }) 
                       }} required/>
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>@</CInputGroupText>
-                    <CFormInput placeholder="Email" autoComplete="email"
+                    <CFormInput placeholder="Email*" autoComplete="email"
                       onChange={(e) => {
                         setUser({ ...user, email: e.target.value });
                         setUserLogin({...userlogin,email:e.target.value});
@@ -103,7 +121,7 @@ const UserRegistration = () => {
                     </CInputGroupText>
                     <CFormInput
                       type="password"
-                      placeholder="Password"
+                      placeholder="Password*"
                       autoComplete="new-password"
 
                       onChange={(e) => {
@@ -117,17 +135,17 @@ const UserRegistration = () => {
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
 
-                    <CFormInput placeholder="phone number" autoComplete="phoneNo"
+                    <CFormInput placeholder="phoneNumber*" autoComplete="phoneNo"
                       onChange={(e) => {
                         setUser({ ...user, phoneNo: e.target.value })
-                      }} required/>
+                      }} required minLength={10} maxLength={10} />
                   </CInputGroup>
                   <CInputGroup className="mb-3">
                     <CInputGroupText>
                       <CIcon icon={cilUser} />
                     </CInputGroupText>
 
-                    <CFormInput placeholder="address" autoComplete="address"
+                    <CFormInput placeholder="address*" autoComplete="address"
                       onChange={(e) => {
                         setUser({ ...user, address: e.target.value })
 

@@ -40,7 +40,7 @@ export default function WorkerDashboard() {
     let navigate = useNavigate();
     function logout()
     {
-        let path = '/';
+        let path = '/WorkerLogin';
         navigate(path);
     }
 
@@ -56,9 +56,9 @@ export default function WorkerDashboard() {
 
                     <div className="collapse navbar-collapse" id="navbarSupportedContent">
                         <ul className="navbar-nav mr-auto">
-                            <li className="nav-item active">
-                                <a className="nav-link" href="/allworker">View Workes <span className="sr-only">(current)</span></a>
-                            </li>
+                            {/* <li className="nav-item active">
+                                <a className="nav-link" href="/allworker">View Workers <span className="sr-only">(current)</span></a>
+                            </li> */}
                             <li className="nav-item">
                                 <a className="nav-link" href="/services">View Services</a>
                             </li>

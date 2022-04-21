@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import WorkerAdmin from "./WorkerAdmin";
 import base_url from "../api/workerboot";
 import axios from "axios";
+import { Col, Row } from "reactstrap";
 const AllWorkerAdmin=()=>{
 
       //function calling to server
@@ -40,12 +41,15 @@ useEffect(()=>{
             <h4> <center> All worker || Services</center> 
             
             </h4>
-           
+           <Row>
             {
                 worker.length > 0 ? 
-                worker.map((item) =>  <WorkerAdmin key={item} WorkerAdmin worker={item} update={updateworkeradmin}/>  )
+                worker.map((item) =>  
+                <Col md={4}> <WorkerAdmin key={item} WorkerAdmin worker={item} update={updateworkeradmin}/> 
+                </Col>
+                 )
                  : "No worker"}
-         
+         </Row>
         </div>
     );
 };

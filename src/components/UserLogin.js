@@ -21,6 +21,8 @@ import {
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
+import { toast } from 'react-toastify'
+
 
 
 const UserLogin = () => {
@@ -51,11 +53,31 @@ const UserLogin = () => {
       (Response)=>{
         console.log(Response.data);
         if (Response.data==="success") {
-          alert("loging successfully")
+          toast.success("loging successfully",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          }
+          );
           let path = '/userdashboard';
           navigate(path);
         }else{
-          alert ("Incorrect Email/Password, please check your email and password");
+          toast.warning("Incorrect Email/Password, please check your email and password",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          }
+          );
         }   
       },
       (error)=>{
@@ -66,9 +88,10 @@ const UserLogin = () => {
   
 
   return (
+    
     <>
       {UserDashboard ? (
-        <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+       <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
 
           <CContainer>
             <CRow className="justify-content-center">

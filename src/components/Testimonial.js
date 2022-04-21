@@ -33,19 +33,19 @@ export default function Testimonial() {
               <ol class="carousel-indicators tabs">
                 <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active">
                   <figure>
-                    <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-01-179x179.png" class="img-fluid" alt="" />
+                    <img src="samraddhi.png" class="img-fluid" alt="" />
                     <figcaption><b>Samraddhi Khare</b></figcaption>
                   </figure>
                 </li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="1">
                   <figure>
-                    <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-02-306x306.png" class="img-fluid" alt="" />
+                    <img src="surbhi.png" class="img-fluid" alt="" />
                     <figcaption><b>Surbhi pandey</b></figcaption>
                   </figure>
                 </li>
                 <li data-target="#carouselExampleIndicators" data-slide-to="2">
                   <figure>
-                    <img src="https://livedemo00.template-help.com/wt_62267_v8/prod-20823-one-service/images/testimonials-03-179x179.png" class="img-fluid" alt="" />
+                    <img src="vineet.png" class="img-fluid" alt="" />
                     <figcaption><b>Vineet Singh</b></figcaption>
                   </figure>
                 </li>

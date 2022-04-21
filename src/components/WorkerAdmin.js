@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import base_url from "../api/workerboot";
 import axios from "axios";
 import {
@@ -25,8 +25,6 @@ const WorkerAdmin = ({ worker, update }) => {
             }
         )
     };
-
-
     return (
 
 

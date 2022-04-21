@@ -8,7 +8,7 @@ export default function UserDashboard() {
   let navigate = useNavigate();
   function logout()
   {
-      let path = '/';
+      let path = '/UserLogin';
       navigate(path);
   }
 
@@ -22,7 +22,7 @@ export default function UserDashboard() {
       <ListGroup>
         <Link  className="list-group-item list-group-item-action" tag="a" to="/services" action>View Services</Link>
         <Link  className="list-group-item list-group-item-action" tag="a" to="/allworker" action>View Workers</Link>
-        <Link  className="list-group-item list-group-item-action" tag="a" to="/update" action>update</Link>
+        {/* <Link  className="list-group-item list-group-item-action" tag="a" to="/update" action>update</Link> */}
         
         <form onSubmit={logout}>
         <CButton className='text-center' color="success" type='submit'>Logout</CButton>

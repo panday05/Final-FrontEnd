@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import base_url from "../api/workerboot";
 import axios from "axios";
 import {
@@ -15,21 +15,18 @@ import {
 import { Form } from "reactstrap";
 
 const Worker = ({ worker, update }) => {
-    const deleteWorker = (workerId) => {
-        axios.delete(`${base_url}/worker/${workerId}`).then(
-            (Response) => {
-                console.log("deleted successfully")
-                update(workerId);
-            }, (Error) => {
-                console.log("server problem");
-            }
-        )
-    };
+    // const deleteWorker = (workerId) => {
+    //     axios.delete(`${base_url}/worker/${workerId}`).then(
+    //         (Response) => {
+    //             console.log("deleted successfully")
+    //             update(workerId);
+    //         }, (Error) => {
+    //             console.log("server problem");
+    //         }
+    //     )
+    // };
 
-
-    return (
-
-        
+    return (        
         <Card>
             <Form action="/contactus">
                 <CardBody className="text-center">
@@ -41,7 +38,7 @@ const Worker = ({ worker, update }) => {
                                  
                                     <CardSubtitle className="font-weight-bold"><h2>Name : {worker.name}</h2></CardSubtitle>
                                     <CardText><h5>Address : {worker.address} </h5> </CardText>
-                                    <CardText><h5>Email :{worker.email} </h5></CardText>
+                                    {/* <CardText><h5>Email :{worker.email} </h5></CardText> */}
                                     <CardText><h5>Service :{worker.services} </h5></CardText>
                                     <CardText>{worker.wphoto}</CardText>
 
@@ -62,29 +59,6 @@ const Worker = ({ worker, update }) => {
                 </CardBody>
             </Form>
         </Card>
-
-        // <Card>
-        //     <Form action="/contactus">
-        //         <CardBody className="text-center">
-        //             <CardSubtitle className="font-weight-bold"><h2>Name : {worker.name}</h2></CardSubtitle>
-        //             <CardText><h5>Address : {worker.address} </h5> </CardText>
-        //             <CardText><h5>Email :{worker.email} </h5></CardText>
-        //             <CardText><h5>Service :{worker.services} </h5></CardText>
-        //             <CardText>{worker.wphoto}</CardText>
-
-        //             <Container className="text-center">
-        //                 <Button color="danger" >Book</Button>
-
-        //                 <Button color="success"
-        //                     onClick={() => {
-        //                         deleteWorker(worker.workerId);
-        //                     }}
-        //                 >Delete</Button>
-
-        //             </Container>
-        //         </CardBody>
-        //     </Form>
-        // </Card>
     );
 };
 

@@ -18,8 +18,9 @@ import {
   CRow,
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
-import { cilLockLocked, cilUser } from '@coreui/icons'
+import { cilLockLocked, cilUser, cilWarning } from '@coreui/icons'
 import WorkerDashboard from './WorkerDashboard'
+import { toast } from 'react-toastify'
 
 
 const WorkerLogin = () => {
@@ -39,6 +40,7 @@ const WorkerLogin = () => {
   }
 
   const handleform =(e)=>{
+    
     console.log(data);
     handleFormSubmit(data);
     e.preventDefault();
@@ -50,11 +52,31 @@ const WorkerLogin = () => {
       (Response)=>{
         console.log(Response.data);
         if (Response.data==="success") {
-          alert("loging successfully")
+          toast.success("loging successfully",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          }
+          );
           let path = '/workerdashboard';
           navigate(path);
         }else{
-          alert ("Incorrect Email/Password, please check your email and password");
+          toast.warning("Incorrect Email/Password, please check your email and password",
+          {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined
+          }
+          );
         }   
       },
       (error)=>{
@@ -80,7 +102,7 @@ const WorkerLogin = () => {
                         <h1>Worker Login</h1>
                         <p className="text-medium-emphasis">Sign In to your account</p>
                         <CInputGroup className="mb-3">
-                          <CInputGroupText>
+                          <CInputGroupText >
                             <CIcon icon={cilUser} />
                           </CInputGroupText>
                           <CFormInput placeholder="email" autoComplete="email" value={email}
